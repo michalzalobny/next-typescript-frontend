@@ -1,0 +1,65 @@
+.my-gallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  // grid-auto-rows: 17vw;
+  grid-gap: 2rem;
+  grid-row-gap: 50vh;
+
+  @include respond(tab-port) {
+    // grid-auto-rows: 20vw;
+  }
+  @include respond(phone) {
+    // grid-template-columns: repeat(2, 1fr);
+    // grid-auto-rows: 40vw;
+  }
+  &__figure {
+    padding-top: 100%;
+    background-color: $color-grey-2;
+    cursor: pointer;
+    grid-row: auto/ span 1;
+    grid-column: auto / span 1;
+    overflow: hidden;
+    position: relative;
+    &:hover img {
+      transform: scale(1.1);
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: all 0.4s;
+      backface-visibility: hidden;
+      position: relative;
+      opacity: 0;
+      z-index: 0;
+      &__placeholder {
+        pointer-events: none;
+        opacity: 1;
+        // z-index: 1;
+      }
+      &__loaded {
+        z-index: 2;
+        opacity: 1;
+        animation: fade-img 0.8s ease-in-out;
+      }
+    }
+  }
+}
+
+// <div className='container'>
+//   <div className='my-gallery'>
+//     <figure className='my-gallery__figure'>
+//       <a data-title="test title" data-lightbox="gallery1" href="/public/images/icons/icon-be-circle.svg">
+//         <img className='my-gallery__figure__img' src="/public/images/icons/icon-be-circle.svg" alt=""/>
+//       </a>
+//     </figure>
+
+//     <figure className='my-gallery__figure'>
+//       <a data-title="test title" data-lightbox="gallery1" href="/public/images/icons/icon-be-circle.svg">
+//         <img className='my-gallery__figure__img' src="/public/images/icons/icon-be-circle.svg" alt=""/>
+//       </a>
+//     </figure>
+//   </div>
+// </div>

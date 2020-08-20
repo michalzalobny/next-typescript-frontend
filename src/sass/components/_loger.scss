@@ -1,0 +1,110 @@
+.loger-container {
+  margin-bottom: 3rem;
+  display: flex;
+  position: relative;
+  width: 100%;
+  &__item {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    width: 50%;
+    font-weight: 800;
+    padding: 2rem 0;
+    transition: all 0.4s;
+    color: black;
+
+    &--current {
+      color: $color-primary-1;
+    }
+  }
+  &__stripe {
+    transition: all 0.3s;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.4rem;
+    background-color: $color-primary-1;
+  }
+}
+
+.loger-alternatives {
+  position: relative;
+  width: 100%;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid $color-grey-2;
+  &__stripe {
+    transform: translateX(-50%) translateY(50%);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    &__text {
+      font-size: $size-1;
+      color: $color-grey-1;
+      background-color: white;
+      padding: 0 4.2rem;
+    }
+  }
+  &--fb {
+    box-shadow: 0 0 1.2rem rgba(black, 0.15);
+    margin-top: 2.5rem;
+    position: relative;
+    background-color: $color-fb;
+    border-radius: $border-radius-2;
+    text-align: center;
+    &:hover {
+      .loger-alternatives--fb__icon {
+        left: 1.8rem;
+        transform: translateY(-50%) rotate(20deg);
+      }
+    }
+    &__icon {
+      backface-visibility: hidden;
+      transition: all 0.35s;
+      user-select: none;
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 55%;
+    }
+    &__link {
+      padding: 1.2rem;
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: white;
+    }
+  }
+  &--google {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 0 1.2rem rgba(black, 0.15);
+    border-radius: $border-radius-2;
+    text-align: center;
+    &:hover {
+      .loger-alternatives--google__icon {
+        left: 1.8rem;
+        transform: translateY(-50%) rotate(20deg);
+      }
+    }
+    &__icon {
+      backface-visibility: hidden;
+      transition: all 0.35s;
+      user-select: none;
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 55%;
+    }
+    &__link {
+      padding: 1.2rem;
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: black;
+    }
+  }
+}

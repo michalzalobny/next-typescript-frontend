@@ -1,0 +1,33 @@
+$color-primary-1: #7615f5;
+$color-primary-2: #29e4bb;
+
+$color-grey-1: #757575;
+$color-grey-2: #dddddd;
+
+$border-radius-1: 15rem;
+$border-radius-2: 4px;
+
+$box-shadow-1: 0 0 3.2rem rgba(black, 0.25);
+$box-shadow-2: 0 0 1.5rem rgba(black, 0.45);
+
+$color-invalid: #dc3545;
+$color-valid: #28a745;
+
+$color-fb: #1877f2;
+
+$size-1: 1.3rem;
+$size-2: 1.6rem;
+$size-3: 2rem;
+$size-4: 2.4rem;
+
+$line-height-1: 2.5rem;
+$line-height-2: 3.5rem;
+$line-height-3: 3.5rem;
+
+// Z_INDEX:
+// cookies => 5
+// navigation.scss => navbar:10
+// lightGallery.scss => container:20, nav:30
+// modals.scss => modal:40
+// flashmsgs.scss => container:50
+// page-loader =>200

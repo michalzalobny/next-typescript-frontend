@@ -1,0 +1,46 @@
+.cookie-box {
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $box-shadow-1;
+  position: relative;
+  padding: 2rem;
+  border-radius: $border-radius-2;
+  background-color: white;
+  z-index: 5;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  max-width: 35rem;
+  @include respond(phone) {
+    padding: 1.4rem;
+  }
+
+  &__text {
+    line-height: $line-height-1;
+    margin-bottom: 1rem;
+    font-size: $size-1;
+  }
+
+  &__link {
+    color: $color-primary-1;
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 45%;
+    position: absolute;
+    bottom: 90%;
+    left: 0;
+    @include respond(phone) {
+      width: 40%;
+    }
+  }
+  &__btn-container {
+    display: flex;
+    justify-content: flex-start;
+    &__btn {
+      font-size: $size-1;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+// CSS TRANSITIONS GROUP
+.modal-fade-opacity {
+  &-enter {
+    opacity: 0;
+    &-active {
+      opacity: 1;
+      transition: all 400ms;
+    }
+  }
+  &-exit {
+    opacity: 1;
+    &-active {
+      pointer-events: none !important;
+      opacity: 0;
+      transition: all 400ms;
+    }
+  }
+}
+.modal-fade-translate {
+  &-enter {
+    opacity: 0;
+    transform: translateX(-50px);
+    &-active {
+      opacity: 1;
+      transition: all 400ms;
+      transform: translateX(0px);
+    }
+  }
+  &-exit {
+    opacity: 1;
+    &-active {
+      pointer-events: none !important;
+      opacity: 0;
+      transition: all 400ms;
+      transform: translateX(50px);
+    }
+  }
+}
+
+.gallery-open {
+  &-enter {
+    opacity: 0;
+    transform: scale(0.9) !important;
+    &-active {
+      transform: scale(1) !important;
+      opacity: 1;
+      transition: all 400ms;
+    }
+  }
+  &-exit {
+    transform: scale(1) !important;
+    opacity: 1;
+    &-active {
+      transform: scale(0.9) !important;
+      pointer-events: none !important;
+      opacity: 0;
+      transition: all 400ms;
+    }
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-img {
+  0% {
+    opacity: 0;
+ 
+  }
+
+  100% {
+    opacity: 1;
+    
+  }
+}
+
+@keyframes ball-left {
+  0% {
+    right: 2rem;
+  }
+
+  50% {
+    right: 0;
+  }
+
+  100% {
+    right: 2rem;
+  }
+}
+
+@keyframes ball-right {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 2rem;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes flash-msg {
+  0% {
+    transform: translateX(-23rem) scale(1);
+  }
+  20% {
+    transform: translateX(0) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0) scale(0);
+  }
+}
+
+@keyframes form-loading {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}

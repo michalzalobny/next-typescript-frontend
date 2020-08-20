@@ -1,0 +1,23 @@
+.footer {
+  width: 100%;
+  background-color: black;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__item {
+    &,
+    &:link,
+    &:visited {
+      color: $color-grey-1;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      padding: 2rem;
+    }
+    &__info {
+      cursor: initial;
+    }
+  }
+}

@@ -1,0 +1,148 @@
+.btn {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background-color: $color-primary-1;
+  color: white;
+  padding: 1.2rem 3rem;
+  display: inline-block;
+  position: relative;
+  border-radius: 15rem;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background-color: inherit;
+    z-index: -1;
+    border-radius: inherit;
+    transition: width 0.85s, height 0.85s, opacity 0.85s;
+  }
+  &:hover {
+    &::before {
+      opacity: 0;
+      width: calc(100% + 3.2rem);
+      height: calc(100% + 3.2rem);
+    }
+  }
+  &__form {
+    width: 100%;
+    &__loading {
+      background-color: lighten($color-primary-1, 16);
+      cursor: not-allowed;
+    }
+    transition: background-color 0.3s;
+    margin-top: 2.5rem;
+    display: block;
+    text-align: center;
+    &__loader {
+      height: 1.5rem;
+      position: absolute;
+      top: 50%;
+      right: 5rem;
+      transform: translateY(-50%);
+      &::before {
+        content: "";
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: form-loading 1s infinite forwards;
+      }
+      &::after {
+        content: "";
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        left: 0rem;
+        top: 0;
+      }
+    }
+  }
+}
+
+$water-timing: 0.3s;
+$water-color-1: #35d1f5;
+.water-btn {
+  background-color: transparent;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  font-weight: 800;
+  user-select: none;
+  font-size: $size-1;
+  position: relative;
+  transition: color $water-timing, padding $water-timing,
+    border-radius $water-timing;
+  backface-visibility: hidden;
+  overflow: hidden;
+  cursor: pointer;
+  color: white;
+  z-index: 1;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -2;
+    transition-duration: $water-timing;
+    backface-visibility: hidden;
+    background-color: rgba($water-color-1, 0.15);
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: -1;
+    transition-duration: $water-timing;
+    backface-visibility: hidden;
+    background-color: $water-color-1;
+  }
+  &:hover {
+    transition: color $water-timing $water-timing, padding $water-timing,
+      border-radius $water-timing;
+    padding: 1rem 3rem;
+    color: white;
+    &::before {
+      top: 0%;
+    }
+    &::after {
+      top: 0%;
+      transition-delay: $water-timing;
+    }
+  }
+  &:active {
+    padding: 1rem 4rem;
+  }
+  &--green {
+    background-color: transparent;
+    color: white;
+    z-index: 1;
+    &::before {
+      background-color: rgba(green, 1);
+    }
+    &::after {
+      background-color: pink;
+    }
+    &:hover {
+      transition: color $water-timing $water-timing, padding $water-timing,
+        border-radius $water-timing;
+      color: white;
+    }
+  }
+}

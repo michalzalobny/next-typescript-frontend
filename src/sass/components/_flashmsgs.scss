@@ -1,0 +1,41 @@
+.section-flash-messages {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    display: block;
+    bottom: 3rem;
+    left: 3rem;
+    z-index: 50;
+    &__item {
+      margin-top: 3rem;
+      min-width: 30rem;
+      animation: flash-msg 3s forwards;
+      box-shadow: $box-shadow-1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-valid;
+      border-radius: $border-radius-2;
+      box-shadow: $box-shadow-1;
+      &--fail {
+        background-color: $color-invalid;
+      }
+      &--success {
+        background-color: $color-valid;
+      }
+      &--info {
+        background-color: rgb(1, 119, 255);
+      }
+
+      &__text {
+        user-select: none;
+        text-align: center;
+        font-size: inherit;
+        color: white;
+        font-weight: 400;
+        padding: 1.4rem 2rem;
+      }
+    }
+  }
+}

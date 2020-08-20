@@ -1,0 +1,40 @@
+.error {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  &__info {
+    color: black;
+    font-size: 2.2vw;
+    align-self: flex-start;
+    @include respond(tab-port) {
+      font-size: 5vw;
+    }
+    @include respond(phone) {
+      font-size: 5.5vw;
+    }
+  }
+  &__code {
+    margin: 3rem 0;
+    align-self: center;
+    font-size: 15vw;
+    color: rgb(231, 231, 231);
+    @include respond(tab-port) {
+      font-size: 22vw;
+    }
+    @include respond(phone) {
+      font-size: 28vw;
+    }
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &__wrapper {
+      position: relative;
+      // Navbar height here
+      min-height: calc(100vh - 65px);
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,179 @@
+.panel-container {
+  width: 100%;
+  padding: 4rem;
+  box-shadow: $box-shadow-1;
+  border-radius: $border-radius-2;
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    &:nth-child(odd) {
+      background-color: $color-grey-2;
+    }
+    @media (hover: hover) {
+      &:hover {
+        background-color: darken($color-grey-2, 15%);
+      }
+    }
+
+    &__left {
+      display: flex;
+      flex-wrap: wrap;
+      &__item {
+        word-break: break-all;
+        margin: 2rem 0;
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
+    }
+    &__right {
+      margin-left: auto;
+      display: flex;
+      flex-wrap: wrap;
+      &__control {
+        cursor: pointer;
+        padding: 1rem 2rem;
+        border-radius: $border-radius-2;
+        color: white;
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+        &--green {
+          background-color: $color-valid;
+        }
+        &--red {
+          background-color: $color-invalid;
+        }
+      }
+    }
+  }
+}
+
+.panel-loader {
+  font-weight: 800;
+  display: block;
+  width: 100%;
+  position: relative;
+  color: black;
+  margin: 1rem 0;
+
+  &::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: $color-primary-1;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: ball-right 1s infinite forwards;
+  }
+  &::after {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: ball-left 1s infinite forwards;
+  }
+}
+
+.panel-modal-object {
+  word-break: break-word;
+  background-color: $color-primary-1;
+  color: white;
+  padding: 1rem;
+  border-radius: $border-radius-2;
+}
+
+.panel-modal-title {
+  word-wrap: break-word;
+  font-size: $size-3;
+  font-weight: 800;
+  margin: 2rem 0;
+  color: black;
+}
+
+.panel-permission {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  text-transform: capitalize;
+  background-color: $color-grey-2;
+  color: black;
+  padding: 1rem;
+  border-radius: $border-radius-2;
+  width: 100%;
+  &--includes {
+    background-color: $color-valid;
+    color: white;
+  }
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.panel-action-buttons {
+  &__container {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    &__item {
+      cursor: pointer;
+      user-select: none;
+      background-color: $color-grey-2;
+      color: black;
+      padding: 1rem 2.5rem;
+      border-radius: $border-radius-2;
+      &--green {
+        background-color: $color-valid;
+        color: white;
+      }
+      &--red {
+        color: white;
+        background-color: $color-invalid;
+      }
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.panel-action-extra-button {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 2.5rem;
+  border-radius: $border-radius-2;
+  margin-top: 1rem;
+  background-color: $color-grey-2;
+  color: black;
+  cursor: pointer;
+}
+
+.panel-extra-info {
+  font-size: $size-1;
+  margin: 2rem 0;
+  color: black;
+}
+
+.panel-btn {
+  background-color: darken($color-grey-2, 15%);
+  margin: 1rem;
+  transition: background-color 0.2s;
+  &--current {
+    background-color: $color-primary-1;
+  }
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

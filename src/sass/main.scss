@@ -1,0 +1,23 @@
+@import "utils/mixins";
+@import "utils/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+
+@import "components/buttons";
+@import "components/gallery";
+@import "components/cookies";
+@import "components/form";
+@import "components/modals";
+@import "components/flashmsgs";
+@import "components/loger";
+@import "components/lightGallery";
+
+@import "layout/navbar";
+@import "layout/footer";
+
+@import "pages/index";
+@import "pages/errorpage";
+@import "pages/privacypolicy";
+@import "pages/panel";

@@ -1,0 +1,175 @@
+.navigation {
+  height: $navbar-height;
+  box-shadow: $box-shadow-1;
+  z-index: 10;
+  width: 100%;
+  background: white;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  &__list {
+    list-style: none;
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    @include respond(tab-land) {
+      width: 65%;
+    }
+    @include respond(tab-port) {
+      width: 85%;
+    }
+    @include respond(phone) {
+      width: 95%;
+    }
+    &__panel {
+      width: 75%;
+    }
+    &__item {
+      color: black;
+      &__link {
+        color: inherit;
+        transition: color 0.2s;
+        padding: 1.2rem;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-primary-1;
+        }
+        @include respond(tab-port) {
+          padding: 2rem 6rem;
+          display: block;
+        }
+      }
+      &__img {
+        margin-right: auto;
+        padding: 1.2rem 0;
+        position: relative;
+        height: 100%;
+        &__icon {
+          height: 100%;
+        }
+      }
+      @include respond(tab-port) {
+        padding: 0;
+        width: 100%;
+        &:not(:last-child) {
+          border-bottom: 1px solid rgb(245, 245, 245);
+        }
+      }
+    }
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+     
+      @include respond(tab-port) {
+        min-width: 30%;
+        height: 100%;
+        background-color: white;
+        position: fixed;
+        top: $navbar-height;
+        right: 0;
+        transform: translateX(100%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      &__checked {
+        @include respond(tab-port) {
+          transform: translateX(0%);
+        }
+      }
+      &__touched{
+        transition: all 0.4s;
+      }
+    }
+    &__wider {
+      width: 85%;
+    }
+  }
+  &__background {
+    transition: all 0.4s;
+    background-color: rgba(black, 0.3);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    visibility: hidden;
+    top: $navbar-height;
+    left: 0;
+    display: none;
+    // CHANGE THE BEHAVIOR OF NAVBAR 1 or 2
+    opacity: 0;
+    //  transform: translateX(-100%);
+    @include respond(tab-port) {
+      display: block;
+    }
+    pointer-events: none;
+    &__checked {
+      pointer-events: initial;
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+$time-one: 0.1s;
+$time-two: 0.25s;
+$time-three: 0.15s;
+
+.stripes {
+  cursor: pointer;
+  width: $navbar-height;
+  height: $navbar-height;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  @include respond(tab-port) {
+    display: flex;
+  }
+  &__checkbox {
+    display: none;
+  }
+  &__one {
+    backface-visibility: hidden;
+    width: calc(55px * 0.4); //Navbar height
+    height: 1px;
+    background-color: $color-primary-1;
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%) rotate(0);
+    transition: transform $time-two,
+      top $time-one $time-three cubic-bezier(0.6, 0.1, 0.68, 0.92);
+    &__checked {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      transition: transform $time-two $time-one,
+        top $time-one cubic-bezier(0.6, 0.1, 0.68, 0.92);
+    }
+  }
+  &__two {
+    backface-visibility: hidden;
+    width: calc(55px * 0.4); //Navbar height
+    height: 1px;
+    background-color: $color-primary-1;
+    position: absolute;
+    bottom: 42%;
+    transform: translateY(50%) rotate(0);
+    transition: transform $time-two,
+      bottom $time-one $time-three cubic-bezier(0.6, 0.1, 0.68, 0.92);
+    &__checked {
+      bottom: 50%;
+      transform: translateY(50%) rotate(-45deg);
+      transition: transform $time-two $time-one,
+        bottom $time-one cubic-bezier(0.6, 0.1, 0.68, 0.92);
+    }
+  }
+}

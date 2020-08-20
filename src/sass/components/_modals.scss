@@ -1,0 +1,42 @@
+.modal {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 40;
+  &__container {
+    pointer-events: initial;
+    overflow: auto;
+    padding: 4rem;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 5vh;
+    background-color: white;
+    box-shadow: $box-shadow-1;
+    border-radius: $border-radius-2;
+    max-height: 90vh;
+    width: 45rem;
+    @include respond(phone) {
+      width: 90%;
+    }
+  }
+  &__background {
+    pointer-events: initial;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(black, 0.4);
+  }
+  &__close {
+    width: 2.3rem;
+    &__container {
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+}

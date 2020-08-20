@@ -1,0 +1,230 @@
+.form {
+  position: relative;
+  // margin-top: 4.5rem;
+  &__input {
+    width: 100%;
+    padding: 1.2rem 3rem;
+    border-radius: $border-radius-1;
+    border: 2px solid $color-primary-1;
+    transition: all 0.4s;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 2rem rgba($color-primary-1, 0.5);
+    }
+
+    &__invalid {
+      border: 2px solid $color-invalid;
+    }
+
+    &__textarea {
+      resize: none;
+      width: 100%;
+      padding: 1.2rem 2rem;
+      border-radius: $border-radius-2;
+      border: 2px solid $color-primary-1;
+      transition: all 0.4s;
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 3rem rgba($color-primary-1, 0.3);
+      }
+      &__label {
+        position: absolute;
+        left: 3rem;
+        transition: all 0.3s;
+        transform: translate3d(0, 1.2rem, 0);
+        &__focused {
+          transform: translate3d(0, -100%, 0);
+          font-size: $size-1;
+          padding-bottom: 0.2rem;
+        }
+        backface-visibility: hidden;
+        user-select: none;
+        pointer-events: none;
+      }
+      &__invalid {
+        border: 2px solid $color-invalid;
+      }
+    }
+    &__caption {
+      font-size: $size-1;
+      margin-top: 0.5rem;
+    }
+    &__container {
+      margin-top: 2.5rem;
+      position: relative;
+    }
+    &__wrapper {
+      position: relative;
+    }
+    &__info {
+      color: $color-invalid;
+      font-size: $size-1;
+      line-height: $line-height-1;
+      animation: reveal 0.4s;
+    }
+    &__message {
+      cursor: pointer;
+      font-size: $size-1;
+      color: black;
+      line-height: $line-height-1;
+    }
+  }
+  &__label {
+    position: absolute;
+    left: 3rem;
+    bottom: 50%;
+    transform: translate3d(0, 50%, 0);
+    transition: all 0.3s;
+    &__focused {
+      bottom: 100%;
+      transform: translate3d(0, 0, 0);
+      font-size: $size-1;
+      padding-bottom: 0.2rem;
+    }
+    backface-visibility: hidden;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.radio-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.4rem;
+  @include respond(phone) {
+    grid-gap: 2rem;
+  }
+  &__item {
+    &__label {
+      user-select: none;
+      cursor: pointer;
+      position: relative;
+      padding-left: calc(24px + 5px);
+      display: inline-block;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 3px solid $color-primary-1;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transition: all 0.3s;
+
+        transform: translateY(-50%) scale(0);
+        width: 10px;
+        height: 10px;
+        background-color: $color-primary-1;
+        border-radius: 50%;
+      }
+    }
+
+    &__input {
+      display: none;
+      &:checked + label:after {
+        transform: translateY(-50%) scale(1);
+      }
+    }
+  }
+}
+
+.checkbox-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.4rem;
+  @include respond(phone) {
+    grid-gap: 2rem;
+  }
+  &__item {
+    &__label {
+      user-select: none;
+      cursor: pointer;
+      position: relative;
+      padding-left: calc(20px + 5px);
+      display: inline-block;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        border: 3px solid $color-primary-1;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transition: all 0.3s;
+
+        transform: translateY(-50%) scale(0);
+        width: 10px;
+        height: 10px;
+        background-color: $color-primary-1;
+        border-radius: 2px;
+      }
+    }
+
+    &__input {
+      display: none;
+      &:checked + label:after {
+        transform: translateY(-50%) scale(1);
+      }
+    }
+  }
+}
+
+// <form action="">
+//           <div class="input-container">
+//             <label class="input-container__label" for="item">Opowiedz nam coś o sobie *</label>
+//             <textarea placeholder="Moje ulubione..." class="input-container__input__textarea" name="" id="" rows="5"></textarea>
+//           </div>
+
+//           <div class="input-container">
+//             <label class="input-container__label" for="item">Imię i nazwisko *</label>
+//             <input placeholder="Jan Nowak" type="text" class="input-container__input">
+//             <p class="input-container__input__caption">Możesz użyć więcej</p>
+//           </div>
+
+//           <div class="input-container">
+//             <label class="input-container__label" for="item">Płeć *</label>
+//             <div class="radio-container">
+//                 <div class="radio-container__item">
+//                   <input  class="radio-container__item__input" name="gender" type="radio" id="gender1" value="gender1">
+//                   <label class="radio-container__item__label"  for="gender1">Man</label>
+//                 </div>
+//                 <div class="radio-container__item">
+//                   <input class="radio-container__item__input" name="gender" type="radio" id="gender2" value="gender2">
+//                   <label class="radio-container__item__label" for="gender2">Woman</label>
+//                 </div>
+//             </div>
+//           </div>
+
+//           <div class="input-container">
+//             <label class="input-container__label" for="item">Możesz wybrać kilka opcji *</label>
+//             <div class="checkbox-container">
+//               <div class="checkbox-container__item">
+//                 <input  class="checkbox-container__item__input" type="checkbox" id="1">
+//                 <label class="checkbox-container__item__label"  for="1">Opcja 1</label>
+//               </div>
+
+//               <div class="checkbox-container__item">
+//                 <input  class="checkbox-container__item__input" type="checkbox" id="2">
+//                 <label class="checkbox-container__item__label"  for="2">Opcja 2</label>
+//               </div>
+//             </div>
+//             <p class="input-container__input__caption">Możesz zaznaczyć kilka opcji</p>
+//           </div>
+//         </form>

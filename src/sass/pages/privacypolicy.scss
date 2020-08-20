@@ -1,0 +1,26 @@
+.privacy {
+  &__link-container {
+    display: flex;
+    justify-content: center;
+  }
+  &__container {
+    padding: 4rem;
+    box-shadow: $box-shadow-1;
+    border-radius: $border-radius-2;
+  }
+  &-header {
+    line-height: $line-height-3;
+    font-size: $size-4;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: black;
+    &:not(:first-child) {
+      margin-top: 4rem;
+    }
+  }
+  &__text {
+    line-height: $line-height-2;
+    font-weight: 400;
+    color: black;
+  }
+}
