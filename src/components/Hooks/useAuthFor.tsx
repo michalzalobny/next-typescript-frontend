@@ -2,19 +2,12 @@ import React from 'react'
 import { useAuthContext } from '../Context/AuthContext'
 import { RolesTypes } from '../../../types/sharedTypes'
 
-export const useCheckAuthRole = () => {
+export const useAuthFor = () => {
   const { userRoles } = useAuthContext()
 
   const authFor = React.useCallback(
     (roles: RolesTypes[]) => {
-      let shouldAuth = false
-      const userRolesArray = [...userRoles]
-      userRolesArray.forEach((role) => {
-        if (roles.includes(role)) {
-          shouldAuth = true
-        }
-      })
-      return shouldAuth
+      return roles.some((userRole) => userRoles.includes(userRole))
     },
     [userRoles]
   )

@@ -15,8 +15,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   extends: [
     'airbnb',
-    'plugin:@typescript-eslint/recommended',
-    // 'plugin:react/recommended',
+    'plugin:react/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
@@ -26,6 +25,9 @@ module.exports = {
     'plugin:react-hooks/recommended',
   ],
   rules: {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'react/display-name': 'off',
     'global-require': 0,
     'import/no-dynamic-require': 0,
     'no-underscore-dangle': 'off',

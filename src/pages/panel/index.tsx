@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useCheckAuthRole } from '../../components/Hooks/useCheckAuthRole'
+import { useAuthFor } from '../../components/Hooks/useAuthFor'
 import useText from '../../components/Hooks/useText'
 
 // PanelElements
@@ -18,7 +18,7 @@ const PanelPage = React.memo(() => {
   const getText = useText()
   const textUsers = getText('textUsers')
   const textOther = getText('textOther')
-  const authFor = useCheckAuthRole()
+  const authFor = useAuthFor()
   const [currentPanelMode, setCurrentPanelMode] = useState<PanelElementInputType['panelMode'] | null>(null)
 
   const panelElementInput: PanelElementInputType[] = [

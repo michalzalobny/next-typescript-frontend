@@ -5,7 +5,7 @@ import useText from '../../Hooks/useText'
 const FacebookLogin = React.memo(() => {
   const getText = useText()
   const loginHandler = React.useCallback(() => {
-    localStorage.setItem('loginStrategy', 'facebook')
+    localStorage.setItem('shouldRequestLogin', 'true')
   }, [])
 
   return (

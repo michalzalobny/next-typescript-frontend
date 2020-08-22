@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import Router, { useRouter } from 'next/router'
-import { RolesTypes } from '../../../types/sharedTypes'
+import type { RolesTypes } from '../../../types/sharedTypes'
 import axios from '../../axiosInstance'
 import { useFlashContext } from './FlashContext'
 import useText from '../Hooks/useText'
@@ -38,7 +38,8 @@ const AuthContextProvider = React.memo<Props>((props) => {
             if (router.pathname !== '/') {
               Router.push('/')
             }
-            localStorage.removeItem('loginStrategy')
+            localStorage.removeItem('shouldRequestLogin')
+
             setUserRoles([])
             addFlash({
               flashText: infoLoggedOut,
@@ -53,7 +54,7 @@ const AuthContextProvider = React.memo<Props>((props) => {
           })
       } else {
         setUserRoles([])
-        localStorage.removeItem('loginStrategy')
+        localStorage.removeItem('shouldRequestLogin')
       }
     },
     [addFlash, infoError, infoLoggedOut, router.pathname]

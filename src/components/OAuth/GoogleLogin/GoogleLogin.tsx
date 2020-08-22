@@ -5,7 +5,7 @@ import useText from '../../Hooks/useText'
 const GoogleLogin = React.memo(() => {
   const getText = useText()
   const loginHandler = React.useCallback(() => {
-    localStorage.setItem('loginStrategy', 'google')
+    localStorage.setItem('shouldRequestLogin', 'true')
   }, [])
 
   return (

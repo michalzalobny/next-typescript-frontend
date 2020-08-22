@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { useCheckAuthRole } from '../Hooks/useCheckAuthRole'
+import { useAuthFor } from '../Hooks/useAuthFor'
 import useText from '../Hooks/useText'
 
 const Footer = React.memo(() => {
   const getText = useText()
-  const authFor = useCheckAuthRole()
+  const authFor = useAuthFor()
 
   return (
     <footer className="footer">

@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config()
 const express = require('express')
 const next = require('next')
 
 const PORT = process.env.NEXT_PUBLIC_APP_PORT_FRONT
-// eslint-disable-next-line no-unused-vars
-const env = process.env.NODE_ENV
 const dev = process.env.NODE_ENV !== 'production'
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
@@ -18,11 +16,11 @@ app
   .then(() => {
     const server = express()
 
-    server.get('/*', function (req, res, next) {
+    server.get('/*', (req, res, nextStep) => {
       if (req.headers.host.match(/^www/) !== null) {
         res.redirect(`https://${req.headers.host.replace(/^www\./, '')}${req.url}`)
       } else {
-        next()
+        nextStep()
       }
     })
 
@@ -34,6 +32,5 @@ app
     server.listen(PORT, () => console.log(`NEXT ready at port:${PORT}`))
   })
   .catch((err) => {
-    console.log('An error occurred, unable to start the server')
-    console.log(err)
+    throw new Error(err)
   })

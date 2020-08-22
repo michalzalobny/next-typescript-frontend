@@ -1,15 +1,15 @@
 import React from 'react'
 import { useFlashContext } from '../../Context/FlashContext'
-import { useAuthContext } from '../../Context/AuthContext'
 import { useLogerContext } from '../../Context/LogerContext'
 import axios from '../../../axiosInstance'
 import useText from '../../Hooks/useText'
+import { useUserCredentials } from '../../Hooks/useUserCredentials'
 
 export const useLoginData = () => {
   const getText = useText()
   const { addFlash } = useFlashContext()
   const { toggleShowLoger } = useLogerContext()
-  const { defineAuthTimeout, authSuccess } = useAuthContext()
+  const assignCredentials = useUserCredentials()
 
   const infoDifferentStrategy = getText('infoDifferentStrategy')
   const infoShouldRegister = getText('infoShouldRegister')
@@ -22,16 +22,14 @@ export const useLoginData = () => {
         .post('/user/auth/local', { username, password })
         .then((response) => {
           toggleShowLoger()
-          localStorage.setItem('loginStrategy', 'local')
-          defineAuthTimeout(response.data.expiresIn)
-          authSuccess(response.data.roles)
+          localStorage.setItem('shouldRequestLogin', 'true')
+          assignCredentials({ expiresIn: response.data.expiresIn, userRoles: response.data.roles })
         })
         .catch((error) => {
           setLoadingForm(false)
           switch (error.response.data.action) {
             case 'shouldRegister':
               addFlash({ flashText: infoShouldRegister, flashType: 'info' })
-              // changeLogerMode('register')
               break
             case 'differentStrategy':
               addFlash({ flashText: infoDifferentStrategy, flashType: 'info' })
@@ -48,7 +46,7 @@ export const useLoginData = () => {
           }
         })
     },
-    [toggleShowLoger, defineAuthTimeout, authSuccess, addFlash, infoShouldRegister, infoDifferentStrategy, infoWrongData, infoError]
+    [addFlash, assignCredentials, infoDifferentStrategy, infoError, infoShouldRegister, infoWrongData, toggleShowLoger]
   )
   return loginDataHandler
 }
