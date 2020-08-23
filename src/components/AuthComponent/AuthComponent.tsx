@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import { Loading } from './Loading'
-import axios from '../../axiosInstance'
-import { useFlashContext } from '../Context/FlashContext'
+import axios from '../../utils/axiosInstance'
 import { useAuthContext } from '../Context/AuthContext'
-import useText from '../Hooks/useText'
 import { useUserCredentials } from '../Hooks/useUserCredentials'
+import { useServerResponse } from '../Hooks/useServerResponse'
 
 export const AuthComponent: React.FC = React.memo(({ children }) => {
-  const { addFlash } = useFlashContext()
-  const getText = useText()
+  const { flashFailResponse } = useServerResponse()
+  const router = useRouter()
+
   const { authLogoutAsync } = useAuthContext()
   const assignCredentials = useUserCredentials()
-  const infoError = getText('infoError')
 
   const [isReady, setIsReady] = useState(false)
 
@@ -27,15 +27,12 @@ export const AuthComponent: React.FC = React.memo(({ children }) => {
         .catch(() => {
           setIsReady(true)
           authLogoutAsync(false)
-          addFlash({
-            flashText: infoError,
-            flashType: 'fail',
-          })
+          flashFailResponse(router.query.message)
         })
     } else {
       setIsReady(true)
     }
-  }, [addFlash, assignCredentials, authLogoutAsync, infoError, isReady])
+  }, [assignCredentials, authLogoutAsync, isReady, router.query.message, flashFailResponse])
 
   if (!isReady) {
     return <Loading />

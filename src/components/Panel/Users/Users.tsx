@@ -56,7 +56,6 @@ const Users = React.memo(() => {
   }, [getText, openDeleteUserModal, openUpdateRolesModal, toggleDeleteUserModal, toggleUpdateRolesModal, users])
 
   const renderRoles = React.useCallback(() => {
-    // grantForArray: All possible roles to get
     const grantForArray: RolesTypes[] = ['admin', 'superuser']
     return grantForArray.map((role) => {
       if (userRolesArray.includes(role)) {

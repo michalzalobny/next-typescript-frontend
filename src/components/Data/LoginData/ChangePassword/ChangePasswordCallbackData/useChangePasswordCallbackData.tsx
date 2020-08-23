@@ -1,14 +1,15 @@
 import React from 'react'
 import Router from 'next/router'
 import { useFlashContext } from '../../../../Context/FlashContext'
-import axios from '../../../../../axiosInstance'
+import axios from '../../../../../utils/axiosInstance'
 import useText from '../../../../Hooks/useText'
+import { useServerResponse } from '../../../../Hooks/useServerResponse'
 
 export const useChangePasswordCallbackData = () => {
+  const { flashFailResponse } = useServerResponse()
   const { addFlash } = useFlashContext()
   const getText = useText()
   const passwordChanged = getText('passwordChanged')
-  const infoError = getText('infoError')
 
   const changePasswordCallbackDataHandler = React.useCallback(
     (passedData, setLoadingForm) => {
@@ -22,10 +23,10 @@ export const useChangePasswordCallbackData = () => {
         })
         .catch(() => {
           setLoadingForm(false)
-          addFlash({ flashText: infoError, flashType: 'fail' })
+          flashFailResponse(undefined)
         })
     },
-    [addFlash, infoError, passwordChanged]
+    [addFlash, flashFailResponse, passwordChanged]
   )
   return changePasswordCallbackDataHandler
 }

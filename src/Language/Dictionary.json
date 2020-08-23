@@ -78,7 +78,8 @@
     "labelLogerSwitchToLogin": "Przełącz na sekcję z logowaniem",
     "labelLogerSwitchToRegister": "Przełącz na sekcję z rejestrowaniem",
     "labelCloseModal": "Zamknij modal",
-    "labelToggleNavbar": "Zamknij/Otwórz pasek nawigacji"
+    "labelToggleNavbar": "Zamknij/Otwórz pasek nawigacji",
+    "userAlreadyExists": "Ten email został już wcześniej zarejestrowany"
   },
   "en": {
     "cookies": "This site is using cookies to enhance your experience. By staying here, you agree to our use of cookies.",
@@ -159,6 +160,7 @@
     "labelLogerSwitchToLogin": "Switch to login section",
     "labelLogerSwitchToRegister": "Swtich to register section",
     "labelCloseModal": "Close modal",
-    "labelToggleNavbar": "Toggle navigation bar"
+    "labelToggleNavbar": "Toggle navigation bar",
+    "userAlreadyExists": "User already exists, try sign in"
   }
 }

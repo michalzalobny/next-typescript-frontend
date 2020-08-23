@@ -1,13 +1,14 @@
 import React from 'react'
 import { useFlashContext } from '../../../Context/FlashContext'
-import axios from '../../../../axiosInstance'
+import axios from '../../../../utils/axiosInstance'
 import useText from '../../../Hooks/useText'
 import { RolesTypes, UserType } from '../../../../../types/sharedTypes'
+import { useServerResponse } from '../../../Hooks/useServerResponse'
 
 export const useDeleteUser = () => {
+  const { flashFailResponse } = useServerResponse()
   const getText = useText()
   const { addFlash } = useFlashContext()
-  const infoError = getText('infoError')
   const panelRemoveSuccess = getText('panelRemoveSuccess')
   const deleteUser = React.useCallback(
     (currentUser: UserType, toggleDeleteUserModal: () => void, fetchUsers: () => void) => {
@@ -22,13 +23,10 @@ export const useDeleteUser = () => {
           fetchUsers()
         })
         .catch(() => {
-          addFlash({
-            flashText: infoError,
-            flashType: 'fail',
-          })
+          flashFailResponse(undefined)
         })
     },
-    [addFlash, infoError, panelRemoveSuccess]
+    [addFlash, flashFailResponse, panelRemoveSuccess]
   )
 
   const openDeleteUserModal = React.useCallback(

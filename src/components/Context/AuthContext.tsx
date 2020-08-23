@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 import Router, { useRouter } from 'next/router'
 import type { RolesTypes } from '../../../types/sharedTypes'
-import axios from '../../axiosInstance'
+import axios from '../../utils/axiosInstance'
 import { useFlashContext } from './FlashContext'
 import useText from '../Hooks/useText'
 

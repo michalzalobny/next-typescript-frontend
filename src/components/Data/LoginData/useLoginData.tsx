@@ -1,20 +1,14 @@
 import React from 'react'
-import { useFlashContext } from '../../Context/FlashContext'
 import { useLogerContext } from '../../Context/LogerContext'
-import axios from '../../../axiosInstance'
-import useText from '../../Hooks/useText'
+import axios from '../../../utils/axiosInstance'
 import { useUserCredentials } from '../../Hooks/useUserCredentials'
+import { useServerResponse } from '../../Hooks/useServerResponse'
 
 export const useLoginData = () => {
-  const getText = useText()
-  const { addFlash } = useFlashContext()
+  const { flashFailResponse } = useServerResponse()
+
   const { toggleShowLoger } = useLogerContext()
   const assignCredentials = useUserCredentials()
-
-  const infoDifferentStrategy = getText('infoDifferentStrategy')
-  const infoShouldRegister = getText('infoShouldRegister')
-  const infoWrongData = getText('infoWrongData')
-  const infoError = getText('infoError')
 
   const loginDataHandler = React.useCallback(
     (username, password, setLoadingForm) => {
@@ -27,26 +21,10 @@ export const useLoginData = () => {
         })
         .catch((error) => {
           setLoadingForm(false)
-          switch (error.response.data.action) {
-            case 'shouldRegister':
-              addFlash({ flashText: infoShouldRegister, flashType: 'info' })
-              break
-            case 'differentStrategy':
-              addFlash({ flashText: infoDifferentStrategy, flashType: 'info' })
-              setLoadingForm(false)
-              break
-            case 'wrongPassword':
-              addFlash({ flashText: infoWrongData, flashType: 'fail' })
-              setLoadingForm(false)
-              break
-            default:
-              addFlash({ flashText: infoError, flashType: 'fail' })
-              setLoadingForm(false)
-              break
-          }
+          flashFailResponse(error.response.data.message)
         })
     },
-    [addFlash, assignCredentials, infoDifferentStrategy, infoError, infoShouldRegister, infoWrongData, toggleShowLoger]
+    [assignCredentials, flashFailResponse, toggleShowLoger]
   )
   return loginDataHandler
 }

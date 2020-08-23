@@ -1,8 +1,7 @@
 import React from 'react'
-import { useFlashContext } from '../../../Context/FlashContext'
-import axios from '../../../../axiosInstance'
-import useText from '../../../Hooks/useText'
+import axios from '../../../../utils/axiosInstance'
 import { UserType } from '../../../../../types/sharedTypes'
+import { useServerResponse } from '../../../Hooks/useServerResponse'
 
 type PropsTypes = {
   setUsers: React.Dispatch<React.SetStateAction<UserType[]>>
@@ -10,9 +9,7 @@ type PropsTypes = {
 }
 
 export const useFetchUsers = (setUsers: PropsTypes['setUsers'], setLoadingUsers: PropsTypes['setLoadingUsers']) => {
-  const getText = useText()
-  const infoError = getText('infoError')
-  const { addFlash } = useFlashContext()
+  const { flashFailResponse } = useServerResponse()
   const fetchUsers = React.useCallback(() => {
     setLoadingUsers(true)
     axios
@@ -22,14 +19,11 @@ export const useFetchUsers = (setUsers: PropsTypes['setUsers'], setLoadingUsers:
         setLoadingUsers(false)
       })
       .catch(() => {
-        addFlash({
-          flashText: infoError,
-          flashType: 'fail',
-        })
+        flashFailResponse(undefined)
         setUsers([])
         setLoadingUsers(false)
       })
-  }, [addFlash, infoError, setLoadingUsers, setUsers])
+  }, [flashFailResponse, setLoadingUsers, setUsers])
 
   return {
     fetchUsers,

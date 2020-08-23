@@ -1,14 +1,15 @@
 import React from 'react'
 import { useFlashContext } from '../../../Context/FlashContext'
-import axios from '../../../../axiosInstance'
+import axios from '../../../../utils/axiosInstance'
 import useText from '../../../Hooks/useText'
 import { RolesTypes, UserType } from '../../../../../types/sharedTypes'
+import { useServerResponse } from '../../../Hooks/useServerResponse'
 
 export const useUpdateRoles = () => {
+  const { flashFailResponse } = useServerResponse()
   const getText = useText()
   const { addFlash } = useFlashContext()
   const infoPermissionSuccess = getText('infoPermissionSuccess')
-  const infoError = getText('infoError')
   const updateRoles = React.useCallback(
     (currentUser: UserType, userPermissionsArray: RolesTypes[], fetchUsers: () => void, toggleUpdateRolesModal: () => void) => {
       axios
@@ -22,13 +23,10 @@ export const useUpdateRoles = () => {
           })
         })
         .catch(() => {
-          addFlash({
-            flashText: infoError,
-            flashType: 'fail',
-          })
+          flashFailResponse(undefined)
         })
     },
-    [addFlash, infoError, infoPermissionSuccess]
+    [addFlash, flashFailResponse, infoPermissionSuccess]
   )
 
   const openUpdateRolesModal = React.useCallback(

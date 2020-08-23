@@ -1,14 +1,15 @@
 import React from 'react'
 import { useFlashContext } from '../../Context/FlashContext'
-import axios from '../../../axiosInstance'
+import axios from '../../../utils/axiosInstance'
 import useText from '../../Hooks/useText'
+import { useServerResponse } from '../../Hooks/useServerResponse'
 
 export const usePageFormData = () => {
+  const { flashFailResponse } = useServerResponse()
   const getText = useText()
   const { addFlash } = useFlashContext()
 
   const infoSent = getText('infoSent')
-  const infoError = getText('infoError')
   const userInfo12 = getText('userInfo12')
   const userInfo13 = getText('userInfo13')
 
@@ -26,10 +27,10 @@ export const usePageFormData = () => {
         })
         .catch(() => {
           setLoadingForm(false)
-          addFlash({ flashText: infoError, flashType: 'fail' })
+          flashFailResponse(undefined)
         })
     },
-    [addFlash, infoError, infoSent, userInfo12, userInfo13]
+    [addFlash, flashFailResponse, infoSent, userInfo12, userInfo13]
   )
   return pageFormDataHandler
 }

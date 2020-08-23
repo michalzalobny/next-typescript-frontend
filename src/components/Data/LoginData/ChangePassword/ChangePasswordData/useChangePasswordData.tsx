@@ -1,14 +1,15 @@
 import React from 'react'
 import Router from 'next/router'
 import { useFlashContext } from '../../../../Context/FlashContext'
-import axios from '../../../../../axiosInstance'
+import axios from '../../../../../utils/axiosInstance'
 import useText from '../../../../Hooks/useText'
+import { useServerResponse } from '../../../../Hooks/useServerResponse'
 
 export const useChangePasswordData = () => {
+  const { flashFailResponse } = useServerResponse()
   const { addFlash } = useFlashContext()
   const getText = useText()
   const resetSent = getText('resetSent')
-  const infoError = getText('infoError')
 
   const emailDataSubject = getText('emailDataSubject')
   const emailData1 = getText('emailData1')
@@ -33,10 +34,10 @@ export const useChangePasswordData = () => {
         })
         .catch(() => {
           setLoadingForm(false)
-          addFlash({ flashText: infoError, flashType: 'fail' })
+          flashFailResponse(undefined)
         })
     },
-    [addFlash, emailData1, emailData2, emailData3, emailDataSubject, infoError, resetSent]
+    [addFlash, emailData1, emailData2, emailData3, emailDataSubject, resetSent, flashFailResponse]
   )
   return useChangePasswordDataHandler
 }
