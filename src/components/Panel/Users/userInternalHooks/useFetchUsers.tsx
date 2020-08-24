@@ -13,7 +13,7 @@ export const useFetchUsers = (setUsers: PropsTypes['setUsers'], setLoadingUsers:
   const fetchUsers = React.useCallback(() => {
     setLoadingUsers(true)
     axios
-      .get('/user/getallusers')
+      .get('/users/')
       .then((response) => {
         setUsers(response.data)
         setLoadingUsers(false)

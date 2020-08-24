@@ -16,7 +16,7 @@ export const useRegisterData = () => {
   const registerDataHandler = React.useCallback(
     (email, password, name, setLoadingForm) => {
       axios
-        .post('/user/register', { email, password, name })
+        .post('/users/register', { email, password, name })
         .then(() => {
           changeLogerMode('login')
           addFlash({ flashText: infoRegistered, flashType: 'info' })

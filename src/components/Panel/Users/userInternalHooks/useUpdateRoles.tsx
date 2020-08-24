@@ -13,7 +13,7 @@ export const useUpdateRoles = () => {
   const updateRoles = React.useCallback(
     (currentUser: UserType, userPermissionsArray: RolesTypes[], fetchUsers: () => void, toggleUpdateRolesModal: () => void) => {
       axios
-        .put(`/user/updateroles/${currentUser._id}`, userPermissionsArray)
+        .put(`/users/${currentUser._id}`, userPermissionsArray)
         .then(() => {
           toggleUpdateRolesModal()
           fetchUsers()

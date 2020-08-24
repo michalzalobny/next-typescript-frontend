@@ -13,7 +13,7 @@ export const useDeleteUser = () => {
   const deleteUser = React.useCallback(
     (currentUser: UserType, toggleDeleteUserModal: () => void, fetchUsers: () => void) => {
       axios
-        .delete(`/user/deleteuser/${currentUser._id}`)
+        .delete(`/users/${currentUser._id}`)
         .then(() => {
           toggleDeleteUserModal()
           addFlash({

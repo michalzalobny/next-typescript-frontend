@@ -15,7 +15,7 @@ const FacebookLogin = React.memo(() => {
         aria-label="Login with Facebook"
         onClick={() => loginHandler()}
         className="loger-alternatives--fb__link"
-        href="/api/user/auth/facebook"
+        href="/api/users/auth/facebook"
       >
         {getText('oAuthFacebook')}
       </a>

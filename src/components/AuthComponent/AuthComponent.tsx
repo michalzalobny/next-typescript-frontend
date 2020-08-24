@@ -19,7 +19,7 @@ export const AuthComponent: React.FC = React.memo(({ children }) => {
     const shouldRequestLogin = localStorage.getItem('shouldRequestLogin')
     if (shouldRequestLogin && !isReady) {
       axios
-        .get('user/auth/credentials')
+        .get('users/auth/credentials')
         .then((response) => {
           setIsReady(true)
           assignCredentials({ expiresIn: response.data.expiresIn, userRoles: response.data.roles })

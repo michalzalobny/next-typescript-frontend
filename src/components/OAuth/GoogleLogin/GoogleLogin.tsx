@@ -15,7 +15,7 @@ const GoogleLogin = React.memo(() => {
         aria-label="Login with Google"
         onClick={() => loginHandler()}
         className="loger-alternatives--google__link"
-        href="/api/user/auth/google"
+        href="/api/users/auth/google"
       >
         {getText('oAuthGoogle')}
       </a>

@@ -15,7 +15,7 @@ export const useChangePasswordCallbackData = () => {
     (passedData, setLoadingForm) => {
       const token = window.location.pathname.split('/')[4]
       axios
-        .post(`/user/resetuseremailpassword/${token}`, passedData)
+        .post(`/users/reset-password/${token}`, passedData)
         .then(() => {
           setLoadingForm(false)
           addFlash({ flashText: passwordChanged, flashType: 'success' })

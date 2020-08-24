@@ -13,7 +13,7 @@ export const useLoginData = () => {
   const loginDataHandler = React.useCallback(
     (username, password, setLoadingForm) => {
       axios
-        .post('/user/auth/local', { username, password })
+        .post('/users/auth/local', { username, password })
         .then((response) => {
           toggleShowLoger()
           localStorage.setItem('shouldRequestLogin', 'true')

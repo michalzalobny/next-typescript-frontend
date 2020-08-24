@@ -33,7 +33,7 @@ const AuthContextProvider = React.memo<Props>((props) => {
     (shouldAskServer: boolean) => {
       if (shouldAskServer) {
         axios
-          .get('/user/logout')
+          .post('/users/logout')
           .then(() => {
             if (router.pathname !== '/') {
               Router.push('/')

@@ -26,7 +26,7 @@ export const useChangePasswordData = () => {
       payload.emailDataSubject = emailDataSubject
 
       axios
-        .post('/user/resetuserpassword', payload)
+        .post('/users/reset-password', payload)
         .then(() => {
           setLoadingForm(false)
           addFlash({ flashText: resetSent, flashType: 'info' })
