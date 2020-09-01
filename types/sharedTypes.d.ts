@@ -1,6 +1,7 @@
 export type RolesTypes = 'user' | 'superuser' | 'admin'
 export type Language = 'pl' | 'en'
 export type LogerModeTypes = 'login' | 'register'
+export type SessionExpirationType = number
 export type UserType = {
   _id: string | undefined
   email: string | undefined

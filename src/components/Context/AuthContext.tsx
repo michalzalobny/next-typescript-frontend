@@ -4,6 +4,7 @@ import type { RolesTypes } from '../../../types/sharedTypes'
 import axios from '../../utils/axiosInstance'
 import { useFlashContext } from './FlashContext'
 import useText from '../Hooks/useText'
+import { SessionExpirationType } from '../../../types/sharedTypes'
 
 type Props = {
   children: React.ReactNode
@@ -12,7 +13,7 @@ type Props = {
 type AuthContextTypes = {
   userRoles: RolesTypes[]
   authLogoutAsync: (authLogoutAsync: boolean) => void
-  defineAuthTimeout: (expiresIn: number) => void
+  defineAuthTimeout: (expiresIn: SessionExpirationType) => void
   authSuccess: (roles: AuthContextTypes['userRoles']) => void
 }
 
@@ -61,7 +62,7 @@ const AuthContextProvider = React.memo<Props>((props) => {
   )
 
   const defineAuthTimeout = React.useCallback(
-    (expiresIn: number) => {
+    (expiresIn: SessionExpirationType) => {
       setTimeout(() => {
         authLogoutAsync(true)
       }, expiresIn)

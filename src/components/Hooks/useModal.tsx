@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const useModal = () => {
-  const [show, setShow] = useState<boolean>(false)
+  const [show, setShow] = useState(false)
 
   const toggle = React.useCallback(() => {
     setShow(!show)

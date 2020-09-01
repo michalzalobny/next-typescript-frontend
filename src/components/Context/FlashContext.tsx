@@ -27,7 +27,7 @@ const FlashContextProvider = React.memo<Props>((props) => {
   const { children } = props
   const [flashArray, setFlashArray] = useState<FlashContextTypes['flashArray']>([])
 
-  const removeFlash = React.useCallback((id: string) => {
+  const removeFlash = React.useCallback((id: FlashObjectWithId['id']) => {
     setTimeout(() => {
       setFlashArray((prevArray) => [...prevArray.filter((flashContent) => flashContent.id !== id)])
     }, 3000)

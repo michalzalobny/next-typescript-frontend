@@ -2,14 +2,16 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import navImg from '../../public/siteImages/logo.svg'
 import { LogerModeTypes } from '../../../types/sharedTypes'
+import { useAuthFor } from '../Hooks/useAuthFor'
 
 import { useAuthContext } from '../Context/AuthContext'
 import { useLogerContext } from '../Context/LogerContext'
 import useText from '../Hooks/useText'
 
 const Navbar = React.memo(() => {
+  const authFor = useAuthFor()
   const getText = useText()
-  const { userRoles, authLogoutAsync } = useAuthContext()
+  const { authLogoutAsync } = useAuthContext()
   const { changeLogerMode, toggleShowLoger } = useLogerContext()
   const [showNavbar, setShowNavbar] = useState(false)
   const [navbarTouched, setNavbarTouched] = useState(false)
@@ -61,7 +63,7 @@ const Navbar = React.memo(() => {
             </Link>
           </span> */}
 
-          {userRoles.length === 0 ? (
+          {!authFor(['user', 'admin', 'superuser']) ? (
             <span className="navigation__list__item">
               <button type="button" onClick={() => clickedLinkHandler('login')} className="navigation__list__item__link">
                 {getText('login')}
@@ -69,7 +71,7 @@ const Navbar = React.memo(() => {
             </span>
           ) : null}
 
-          {userRoles.length === 0 ? (
+          {!authFor(['user', 'admin', 'superuser']) ? (
             <span className="navigation__list__item">
               <button type="button" onClick={() => clickedLinkHandler('register')} className="navigation__list__item__link">
                 {getText('register')}
@@ -77,7 +79,7 @@ const Navbar = React.memo(() => {
             </span>
           ) : null}
 
-          {userRoles.length !== 0 ? (
+          {authFor(['user', 'admin', 'superuser']) ? (
             <span className="navigation__list__item">
               <button
                 type="button"
