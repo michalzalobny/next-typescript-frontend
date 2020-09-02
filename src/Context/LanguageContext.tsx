@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
-import { Language } from '../../../types/sharedTypes'
+import { Language } from '../../types/sharedTypes'
 
 type Props = {
   children: React.ReactNode

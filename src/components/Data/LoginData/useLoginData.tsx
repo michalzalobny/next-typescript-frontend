@@ -1,8 +1,8 @@
 import React from 'react'
-import { useLogerContext } from '../../Context/LogerContext'
+import { useLogerContext } from '../../../Context/LogerContext'
 import axios from '../../../utils/axiosInstance'
-import { useUserCredentials } from '../../Hooks/useUserCredentials'
-import { useServerResponse } from '../../Hooks/useServerResponse'
+import { useUserCredentials } from '../../../Hooks/useUserCredentials'
+import { useServerResponse } from '../../../Hooks/useServerResponse'
 
 export const useLoginData = () => {
   const { flashFailResponse } = useServerResponse()

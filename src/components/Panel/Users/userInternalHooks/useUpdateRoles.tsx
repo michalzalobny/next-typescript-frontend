@@ -1,9 +1,9 @@
 import React from 'react'
-import { useFlashContext } from '../../../Context/FlashContext'
+import { useFlashContext } from '../../../../Context/FlashContext'
 import axios from '../../../../utils/axiosInstance'
-import useText from '../../../Hooks/useText'
+import useText from '../../../../Hooks/useText'
 import { RolesTypes, UserType } from '../../../../../types/sharedTypes'
-import { useServerResponse } from '../../../Hooks/useServerResponse'
+import { useServerResponse } from '../../../../Hooks/useServerResponse'
 
 export const useUpdateRoles = () => {
   const { flashFailResponse } = useServerResponse()

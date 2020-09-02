@@ -1,6 +1,6 @@
 import React from 'react'
 import fbLogo from '../../../public/siteImages/fb-logo.svg'
-import useText from '../../Hooks/useText'
+import useText from '../../../Hooks/useText'
 
 const FacebookLogin = React.memo(() => {
   const getText = useText()

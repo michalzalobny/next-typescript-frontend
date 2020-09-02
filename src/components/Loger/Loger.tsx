@@ -1,11 +1,11 @@
 import React from 'react'
 import UniversalModal from '../Modals/UniversalModal'
-import { useLogerContext } from '../Context/LogerContext'
+import { useLogerContext } from '../../Context/LogerContext'
 import GoogleLogin from '../OAuth/GoogleLogin/GoogleLogin'
 import FacebookLogin from '../OAuth/FacebookLogin/FacebookLogin'
 import LoginData from '../Data/LoginData/LoginData'
 import RegisterData from '../Data/RegisterData/RegisterData'
-import useText from '../Hooks/useText'
+import useText from '../../Hooks/useText'
 
 const Loger = React.memo(() => {
   const getText = useText()

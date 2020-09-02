@@ -1,9 +1,9 @@
 import React from 'react'
 import Router from 'next/router'
-import { useFlashContext } from '../../../../Context/FlashContext'
+import { useFlashContext } from '../../../../../Context/FlashContext'
 import axios from '../../../../../utils/axiosInstance'
-import useText from '../../../../Hooks/useText'
-import { useServerResponse } from '../../../../Hooks/useServerResponse'
+import useText from '../../../../../Hooks/useText'
+import { useServerResponse } from '../../../../../Hooks/useServerResponse'
 
 export const useChangePasswordCallbackData = () => {
   const { flashFailResponse } = useServerResponse()

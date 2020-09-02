@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useInput } from '../../Hooks/useInput'
+import { useInput } from '../../../Hooks/useInput'
 
 import { useRegisterData } from './useRegisterData'
-import useText from '../../Hooks/useText'
+import useText from '../../../Hooks/useText'
 
 const RegisterData = React.memo(() => {
   const registerDataHandler = useRegisterData()

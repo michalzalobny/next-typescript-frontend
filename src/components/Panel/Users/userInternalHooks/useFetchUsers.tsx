@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from '../../../../utils/axiosInstance'
 import { UserType } from '../../../../../types/sharedTypes'
-import { useServerResponse } from '../../../Hooks/useServerResponse'
+import { useServerResponse } from '../../../../Hooks/useServerResponse'
 
 type PropsTypes = {
   setUsers: React.Dispatch<React.SetStateAction<UserType[]>>

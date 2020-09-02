@@ -1,6 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import useLightGallery from '../Hooks/useLightGallery'
+import useLightGallery from '../../Hooks/useLightGallery'
 import { LazyImage } from './LazyImage/LazyImage'
 import { ImageType } from '../../../types/sharedTypes'
 

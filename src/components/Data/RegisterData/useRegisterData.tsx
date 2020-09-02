@@ -1,9 +1,9 @@
 import React from 'react'
-import { useFlashContext } from '../../Context/FlashContext'
-import { useLogerContext } from '../../Context/LogerContext'
+import { useFlashContext } from '../../../Context/FlashContext'
+import { useLogerContext } from '../../../Context/LogerContext'
 import axios from '../../../utils/axiosInstance'
-import useText from '../../Hooks/useText'
-import { useServerResponse } from '../../Hooks/useServerResponse'
+import useText from '../../../Hooks/useText'
+import { useServerResponse } from '../../../Hooks/useServerResponse'
 
 export const useRegisterData = () => {
   const { flashFailResponse } = useServerResponse()

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import cookieImg from '../../public/siteImages/cookies2.svg'
-import useText from '../Hooks/useText'
+import useText from '../../Hooks/useText'
 
 const CookieInfo = React.memo(() => {
   const [showCookieModal, setShowCookieModal] = useState(false)

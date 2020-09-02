@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Loading } from './Loading'
 import axios from '../../utils/axiosInstance'
-import { useAuthContext } from '../Context/AuthContext'
-import { useUserCredentials } from '../Hooks/useUserCredentials'
-import { useServerResponse } from '../Hooks/useServerResponse'
+import { useAuthContext } from '../../Context/AuthContext'
+import { useUserCredentials } from '../../Hooks/useUserCredentials'
+import { useServerResponse } from '../../Hooks/useServerResponse'
 
 export const AuthComponent: React.FC = React.memo(({ children }) => {
   const { flashFailResponse } = useServerResponse()

@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import navImg from '../../public/siteImages/logo.svg'
 import { LogerModeTypes } from '../../../types/sharedTypes'
-import { useAuthFor } from '../Hooks/useAuthFor'
+import { useAuthFor } from '../../Hooks/useAuthFor'
 
-import { useAuthContext } from '../Context/AuthContext'
-import { useLogerContext } from '../Context/LogerContext'
-import useText from '../Hooks/useText'
+import { useAuthContext } from '../../Context/AuthContext'
+import { useLogerContext } from '../../Context/LogerContext'
+import useText from '../../Hooks/useText'
 
 const Navbar = React.memo(() => {
   const authFor = useAuthFor()

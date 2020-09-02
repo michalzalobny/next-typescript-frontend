@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useInput } from '../../Hooks/useInput'
+import { useInput } from '../../../Hooks/useInput'
 import { usePageFormData } from './usePageFormData'
-import useText from '../../Hooks/useText'
+import useText from '../../../Hooks/useText'
 
 const PageFormData = React.memo(() => {
   const pageFormDataHandler = usePageFormData()

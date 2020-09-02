@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useAuthFor } from '../../components/Hooks/useAuthFor'
-import useText from '../../components/Hooks/useText'
+import { useAuthFor } from '../../Hooks/useAuthFor'
+import useText from '../../Hooks/useText'
 
 // PanelElements
 import Users from '../../components/Panel/Users/Users'

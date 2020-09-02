@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useInput } from '../../../../Hooks/useInput'
+import { useInput } from '../../../../../Hooks/useInput'
 import { useChangePasswordCallbackData } from './useChangePasswordCallbackData'
-import useText from '../../../../Hooks/useText'
+import useText from '../../../../../Hooks/useText'
 
 const ChangePasswordCallbackData = React.memo(() => {
   const changePasswordCallbackDataHandler = useChangePasswordCallbackData()

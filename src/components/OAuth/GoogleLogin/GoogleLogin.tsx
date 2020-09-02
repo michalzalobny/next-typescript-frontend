@@ -1,6 +1,6 @@
 import React from 'react'
 import googleLogo from '../../../public/siteImages/google-logo.svg'
-import useText from '../../Hooks/useText'
+import useText from '../../../Hooks/useText'
 
 const GoogleLogin = React.memo(() => {
   const getText = useText()

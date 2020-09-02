@@ -1,6 +1,6 @@
 import React from 'react'
 import ChangePasswordData from '../../../../components/Data/LoginData/ChangePassword/ChangePasswordData/ChangePasswordData'
-import useText from '../../../../components/Hooks/useText'
+import useText from '../../../../Hooks/useText'
 import { SeoHead } from '../../../../components/Seo/SeoHead'
 
 const ResetPasswordPage = React.memo(() => {

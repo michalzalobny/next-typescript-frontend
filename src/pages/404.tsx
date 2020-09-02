@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import useText from '../components/Hooks/useText'
+import useText from '../Hooks/useText'
 import { SeoHead } from '../components/Seo/SeoHead'
 
 const ErrorPage = React.memo(() => {

@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useState } from 'react'
 import Router, { useRouter } from 'next/router'
-import type { RolesTypes } from '../../../types/sharedTypes'
-import axios from '../../utils/axiosInstance'
+import type { RolesTypes } from '../../types/sharedTypes'
+import axios from '../utils/axiosInstance'
 import { useFlashContext } from './FlashContext'
 import useText from '../Hooks/useText'
-import { SessionExpirationType } from '../../../types/sharedTypes'
+import { SessionExpirationType } from '../../types/sharedTypes'
 
 type Props = {
   children: React.ReactNode

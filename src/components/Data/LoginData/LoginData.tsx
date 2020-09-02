@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { useInput } from '../../Hooks/useInput'
+import { useInput } from '../../../Hooks/useInput'
 import { useLoginData } from './useLoginData'
 
-import { useLogerContext } from '../../Context/LogerContext'
-import useText from '../../Hooks/useText'
+import { useLogerContext } from '../../../Context/LogerContext'
+import useText from '../../../Hooks/useText'
 
 const LoginData = React.memo(() => {
   const getText = useText()

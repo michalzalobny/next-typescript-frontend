@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuthContext } from '../Context/AuthContext'
-import type { RolesTypes, SessionExpirationType } from '../../../types/sharedTypes'
+import type { RolesTypes, SessionExpirationType } from '../../types/sharedTypes'
 
 type AssignUserCredentialsType = {
   expiresIn: SessionExpirationType

@@ -21,6 +21,7 @@
     "next-optimized-images": "^2.6.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-hook-form": "^6.7.0",
     "react-lazyload": "^3.0.0",
     "react-transition-group": "^4.4.1",
     "sass": "^1.26.9",

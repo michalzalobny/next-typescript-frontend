@@ -1,8 +1,8 @@
 import React from 'react'
-import { useFlashContext } from '../../Context/FlashContext'
+import { useFlashContext } from '../../../Context/FlashContext'
 import axios from '../../../utils/axiosInstance'
-import useText from '../../Hooks/useText'
-import { useServerResponse } from '../../Hooks/useServerResponse'
+import useText from '../../../Hooks/useText'
+import { useServerResponse } from '../../../Hooks/useServerResponse'
 
 export const usePageFormData = () => {
   const { flashFailResponse } = useServerResponse()

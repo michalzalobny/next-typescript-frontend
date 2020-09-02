@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFlashContext } from '../Context/FlashContext'
 import useText from './useText'
-import { USE_DIFFERENT_LOGIN_STRATEGY, USER_SHOULD_REGISTER, WRONG_PASSWORD, USER_ALREADY_EXISTS } from '../../constants/userMessages'
+import { USE_DIFFERENT_LOGIN_STRATEGY, USER_SHOULD_REGISTER, WRONG_PASSWORD, USER_ALREADY_EXISTS } from '../constants/userMessages'
 
 export const useServerResponse = () => {
   const { addFlash } = useFlashContext()

@@ -2,7 +2,7 @@ import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 import FocusTrap from 'focus-trap-react'
 import modalCloseBtn from '../../public/siteImages/closeicon.svg'
-import useText from '../Hooks/useText'
+import useText from '../../Hooks/useText'
 
 type Props = {
   toggle: () => void

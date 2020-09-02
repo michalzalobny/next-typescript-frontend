@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { useAuthFor } from '../Hooks/useAuthFor'
-import useText from '../Hooks/useText'
+import { useAuthFor } from '../../Hooks/useAuthFor'
+import useText from '../../Hooks/useText'
 
 const Footer = React.memo(() => {
   const getText = useText()

@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group'
 import FocusTrap from 'focus-trap-react'
 import navClose from '../../public/siteImages/nav-close.svg'
 import navArrow from '../../public/siteImages/gallery-navigation.svg'
-import useText from '../Hooks/useText'
+import useText from '../../Hooks/useText'
 import { ImageType } from '../../../types/sharedTypes'
 
 type Props = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Dictionary from '../../Language/Dictionary.json'
+import Dictionary from '../Language/Dictionary.json'
 import { useLanguageContext } from '../Context/LanguageContext'
 
 type Language = keyof typeof Dictionary

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 import { useRouter } from 'next/router'
-import { useHostName } from '../Context/HostNameContext'
+import { useHostName } from '../../Context/HostNameContext'
 import { Favicon } from './Favicon'
 import { GoogleAnalytics } from './GoogleAnalytics'
 

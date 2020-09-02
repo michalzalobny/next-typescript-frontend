@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFlashContext } from '../Context/FlashContext'
+import { useFlashContext } from '../../Context/FlashContext'
 
 const FlashMessages = React.memo(() => {
   const { flashArray } = useFlashContext()

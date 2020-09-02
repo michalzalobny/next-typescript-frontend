@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import useModal from '../Hooks/useModal'
-import { LogerModeTypes } from '../../../types/sharedTypes'
+import { LogerModeTypes } from '../../types/sharedTypes'
 
 type Props = {
   children: React.ReactNode
